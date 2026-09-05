@@ -96,7 +96,7 @@ public class StocksDAL : IStocksDAL
                 .Select(stock => stock.Id)
                 .ToList();
 
-            const string imageSql = @"
+            const string get_images_query = @"
                 SELECT
                     stock_id AS StockId,
                     image_url AS ImageUrl
@@ -106,11 +106,11 @@ public class StocksDAL : IStocksDAL
                 ";
 
             var images = await connection.QueryAsync<(int StockId, string ImageUrl)>(
-                imageSql,
+                get_images_query,
                 new { StockIds = stockIds });
 
             var imagesByStockId = images
-                .GroupBy(image => image.StockId)
+                .GroupBy(image => image.StockId) // group images by stock id
                 .ToDictionary(
                     group => group.Key,
                     group => group
