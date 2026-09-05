@@ -1,0 +1,37 @@
+syntax = "proto3";
+
+option csharp_namespace = "StocksMicroservice";
+
+package stocks;
+
+service StocksService {
+    rpc GetStocks (StockFilterRequest) returns (StockResponse); // Caller is allowed to send StockFilterRequest
+}
+
+message StockFilterRequest {
+    repeated int32 fuel_types = 1; // repeated means this field can contain multiple values
+    int32 minimum_budget = 2;
+    int32 maximum_budget = 3;  // The numbering here is the field identifier
+    int32 car_make_id = 4;
+    int32 city_id = 5;
+}
+
+message StockResponse {
+    repeated Stock stocks = 1;
+}
+
+message Stock {
+    int32 id = 1;
+    string make_name = 2;
+    string model_name = 3;
+    int32 make_year = 4;
+    double price = 5;
+    int32 kms = 6;
+    int32 fuel_type = 7;
+    int32 make_id = 8;
+    int32 city_id = 9;
+    string city_name = 10;
+    repeated string stock_images = 11;
+}
+
+// The protobuff compiler generates the necessary C# types from stocks.proto like StocksService, Stock, StockResponse, StockFilterRequest in our case
