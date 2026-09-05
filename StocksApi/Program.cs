@@ -13,6 +13,8 @@ builder.Services.AddControllers(); // Enable controllers for this application
 
 builder.Services.AddScoped<FiltersMapper>(); // dependency injection 
 builder.Services.AddScoped<StockMapper>();
+builder.Services.AddScoped<GrpcStockMapper>();
+builder.Services.AddScoped<GrpcStockRequestMapper>();
 
 builder.Services.AddScoped<IStocksBAL, StocksBAL>(); // dependency injection for BAL
 builder.Services.AddScoped<IStocksDAL, StocksDAL>(); // dependency injection for DAL
