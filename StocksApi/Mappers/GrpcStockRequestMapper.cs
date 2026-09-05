@@ -1,3 +1,5 @@
+// This mapper is used to map API Filter objects to gRPC StockFilterRequest objects.
+
 using Riok.Mapperly.Abstractions;
 using StocksApi.Entities;
 using StocksMicroservice;

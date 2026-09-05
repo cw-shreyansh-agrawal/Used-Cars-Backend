@@ -1,3 +1,5 @@
+// This mapper is used to map Stock entity to StockDTO before returning the response to the client. It uses Mapperly library to generate the mapping code at compile time, which improves performance and reduces boilerplate code.
+
 using Riok.Mapperly.Abstractions;
 using StocksApi.DTOs;
 using StocksApi.Entities;

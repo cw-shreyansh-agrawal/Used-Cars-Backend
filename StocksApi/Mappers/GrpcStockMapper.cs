@@ -1,3 +1,5 @@
+// This mapper is used to map gRPC Stock objects to API Stock objects.
+
 using Riok.Mapperly.Abstractions;
 using StocksApi.Entities;
 using StocksMicroservice;
@@ -35,8 +37,7 @@ public partial class GrpcStockMapper
         return (decimal)price;
     }
 
-    private static List<string> MapImages(
-        IEnumerable<string> images)
+    private static List<string> MapImages(IEnumerable<string> images)
     {
         return images.ToList();
     }

@@ -6,7 +6,6 @@ using StocksApi.Mappers;
 
 namespace StocksApi.DAL;
 
-
 public class StocksDAL : IStocksDAL
 {
     private readonly StocksService.StocksServiceClient _stocksClient; // StocksServiceClient is generated from the proto file.
@@ -26,7 +25,7 @@ public class StocksDAL : IStocksDAL
     {
         try{
             // Convert API Filters → gRPC request
-            var request = _stockRequestMapper.ToGrpcRequest(filters); // StockFilterRequest is generated from the proto file.
+            var request = _stockRequestMapper.ToGrpcRequest(filters);
 
             var response = await _stocksClient.GetStocksAsync(request);
 

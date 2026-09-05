@@ -1,3 +1,5 @@
+// This mapper is used to map request DTO to Filter entities.
+
 using Riok.Mapperly.Abstractions;
 using StocksApi.DTOs;
 using StocksApi.Entities;
