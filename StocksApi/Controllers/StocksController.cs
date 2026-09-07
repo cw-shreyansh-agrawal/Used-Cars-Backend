@@ -22,6 +22,11 @@ public class StocksController : ControllerBase // ControllerBase is a base class
     [HttpGet]
     public async Task<IActionResult> GetStocks([FromQuery] StockFilterRequestDto request) // IActionResult represents an HTTP response.
     {
+        if (request.Fuel != null)
+        {
+            request.Fuel = request.Fuel.Replace(" ", "+");
+        }
+
         var errors = StockFilterRequestValidator.Validate(request); // validating the request
 
         if (errors.Count > 0)
